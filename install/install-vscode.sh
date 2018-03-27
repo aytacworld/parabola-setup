@@ -28,6 +28,6 @@ sudo mv VS_FOLDER_NAME /lib/vscode
 # Download desktop file
 sudo cp ../desktop/vscode.desktop /usr/share/applications/
 
-echo Keeweb (${KEEWEB_VERSION}) installed
+echo Visual Studio Code installed
 
 cd ..
