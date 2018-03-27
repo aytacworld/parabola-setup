@@ -1,6 +1,7 @@
 #!/bin/bash
 VS_FILE_NAME=code-stable-code_1.21.1-1521038896_amd64
 VS_FILE=${VS_FILE_NAME}.tar.gz
+VS_FOLDER_NAME=VSCode-linux-x64
 
 # Create temp folder if not exists
 [ ! -d ./temp ] && mkdir ./temp
@@ -22,4 +23,11 @@ read -p "Make sure you download the file to ./temp, after download finishes, pre
 tar -xvzf ./${VS_FILE}
 
 # move to lib folder
-# sudo mv 
+sudo mv VS_FOLDER_NAME /lib/vscode
+
+# Download desktop file
+sudo cp ../desktop/vscode.desktop /usr/share/applications/
+
+echo Keeweb (${KEEWEB_VERSION}) installed
+
+cd ..
