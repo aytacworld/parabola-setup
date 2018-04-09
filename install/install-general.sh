@@ -17,7 +17,7 @@ sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 
 # Enable firewall
-sudo uf enable
+sudo ufw enable
 sudo systemctl enable ufw.service
 
 # Configure git

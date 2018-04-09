@@ -11,10 +11,14 @@ wget https://github.com/keeweb/keeweb/releases/download/v${KEEWEB_VERSION}/${KEE
 
 # Unpack and move to lib folder
 unzip ${KEEWEB_ZIP} -d keeweb
-sudo mv keeweb /lib/keeweb
+sudo mv keeweb /usr/lib/keeweb
 
 # Download desktop file
 sudo cp ../desktop/keeweb.desktop /usr/share/applications/
+
+# Create Terminal shortcut
+printf "#!/bin/bash\nnohub /usr/lib/keeweb/KeeWeb &" | sudo tee /usr/bin/keeweb > /dev/null
+sudo chmod 755 /usr/bin/keeweb
 
 echo Keeweb (${KEEWEB_VERSION}) installed
 

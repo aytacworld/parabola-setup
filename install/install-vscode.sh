@@ -23,10 +23,14 @@ read -p "Make sure you download the file to ./temp, after download finishes, pre
 tar -xvzf ./${VS_FILE}
 
 # move to lib folder
-sudo mv VS_FOLDER_NAME /lib/vscode
+sudo mv VS_FOLDER_NAME /usr/lib/vscode
 
 # Download desktop file
 sudo cp ../desktop/vscode.desktop /usr/share/applications/
+
+# Create Terminal shortcut
+printf "#!/bin/sh\nnohub /usr/lib/vscode/code . &" | sudo tee /usr/bin/vscode > /dev/null
+sudo chmod 755 /usr/bin/keeweb
 
 echo Visual Studio Code installed
 
