@@ -17,7 +17,7 @@ sudo mv keeweb /usr/lib/keeweb
 sudo cp ../desktop/keeweb.desktop /usr/share/applications/
 
 # Create Terminal shortcut
-printf "#!/bin/bash\nnohub /usr/lib/keeweb/KeeWeb &" | sudo tee /usr/bin/keeweb > /dev/null
+printf '#!/bin/bash\nnohup /usr/lib/keeweb/KeeWeb &' | sudo tee /usr/bin/keeweb > /dev/null
 sudo chmod 755 /usr/bin/keeweb
 
 echo Keeweb (${KEEWEB_VERSION}) installed
