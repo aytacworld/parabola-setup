@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sh ./install/install-general.sh
-sh ./install/install-keeweb.sh
-sh ./install/install-vscode.sh
-sh ./install/install-rambox.sh
+sh ./install/general.sh
+sh ./install/keeweb.sh
+sh ./install/vscode.sh
+sh ./install/rambox.sh
