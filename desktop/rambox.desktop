@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=rambox
+GenericName=rambox
+Exec=/usr/local/lib/rambox/rambox
+Terminal=false
+Icon=/usr/local/lib/rambox/256x256.png
+Type=Application
+Categories=Messaging;
+Comment=One app for all social clients
