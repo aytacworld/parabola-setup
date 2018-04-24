@@ -25,6 +25,6 @@ sudo cp ../desktop/${APP_NAME}.desktop /usr/share/applications/
 printf '#!/bin/bash\nnohup ${INSTALL_FOLDER}/${EXECUTABLE_NAME} &' | sudo tee ${BIN_EXECUTABLE} > /dev/null
 sudo chmod 755 ${BIN_EXECUTABLE}
 
-echo ${APP_NAME} (${APP_VERSION}) installed
+echo ${APP_NAME} installed
 
 cd ..

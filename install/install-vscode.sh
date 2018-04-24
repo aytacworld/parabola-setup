@@ -1,37 +1,43 @@
 #!/bin/bash
-VS_FILE_NAME=code-stable-code_1.21.1-1521038896_amd64
-VS_FILE=${VS_FILE_NAME}.tar.gz
-VS_FOLDER_NAME=VSCode-linux-x64
+APP_NAME=vscode
+EXECUTABLE_NAME=code .
+FILE_NAME=code-stable-code_1.22.2-1523551015_amd64
+URL_STABLE=https://az764295.vo.msecnd.net/stable/
+URL_HASH=3aeede733d9a3098f7b4bdc1f66b63b0f48c1ef9/
+TAR_FILE=${FILE_NAME}.tar.gz
+EXTRACT_FOLDER_NAME=VSCode-linux-x64
+INSTALL_FOLDER=/usr/local/lib/${APP_NAME}
+BIN_EXECUTABLE=/usr/local/bin/${APP_NAME}
 
 # Create temp folder if not exists
 [ ! -d ./temp ] && mkdir ./temp
 cd ./temp
 
-# Download vscode using iceweasel
-iceweasel https://az764295.vo.msecnd.net/stable/79b44aa704ce542d8ca4a3cc44cfca566e7720f1/${VS_FILE}
+# Download file using iceweasel
+iceweasel ${URL_STABLE}${URL_HASH}${TAR_FILE}
 
 # Wait for download
 read -p "Make sure you download the file to ./temp, after download finishes, press any key to continue the installation."
 
 # Exit if file is not in ./temp or ~/Downloads
-[ ! -f ./${VS_FILE} ] && [ ! -f ~/Downloads/${VS_FILE} ] && echo "Please download the file inside ./temp or ~/Downloads folder" && exit 0
+[ ! -f ./${TAR_FILE} ] && [ ! -f ~/Downloads/${TAR_FILE} ] && echo "Please download the file inside ./temp or ~/Downloads folder" && exit 0
 
 # if file is in ~/Downloads then move to ./temp
-[ ! -f ./${VS_FILE} ] && [ -f ~/Downloads/${VS_FILE} ] && mv ~/Downloads/${VS_FILE} ./${VS_FILE}
+[ ! -f ./${TAR_FILE} ] && [ -f ~/Downloads/${TAR_FILE} ] && mv ~/Downloads/${TAR_FILE} ./${TAR_FILE}
 
 # Extract file
-tar -xvzf ./${VS_FILE}
+tar -xvzf ./${TAR_FILE}
 
 # move to lib folder
-sudo mv VS_FOLDER_NAME /usr/local/lib/vscode
+sudo mv ${EXTRACT_FOLDER_NAME} ${INSTALL_FOLDER}
 
 # Download desktop file
-sudo cp ../desktop/vscode.desktop /usr/share/applications/
+sudo cp ../desktop/${APP_NAME}.desktop /usr/share/applications/
 
 # Create Terminal shortcut
-printf '#!/bin/sh\nnohup /usr/local/lib/vscode/code . &' | sudo tee /usr/local/bin/vscode > /dev/null
-sudo chmod 755 /usr/local/bin/vscode
+printf '#!/bin/sh\nnohup ${INSTALL_FOLDER}/${EXECUTABLE_NAME} &' | sudo tee ${BIN_EXECUTABLE} > /dev/null
+sudo chmod 755 ${BIN_EXECUTABLE}
 
-echo Visual Studio Code installed
+echo ${APP_NAME} installed
 
 cd ..
