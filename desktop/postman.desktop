@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=postman
+GenericName=postman
+Exec=/usr/local/lib/postman/Postman
+Terminal=false
+Icon=/usr/local/lib/postman/app/resources/app/assets/icon.png
+Type=Application
+Categories=Development;
+Comment=Make rest calls
