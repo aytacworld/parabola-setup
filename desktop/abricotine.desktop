@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=abricotine
+GenericName=abricotine
+Exec=/usr/local/lib/abricotine/Abricotine
+Terminal=false
+Icon=/usr/local/lib/abricotine/icons/abricotine.png
+Type=Application
+Categories=Office;
+Comment=Markdown editor

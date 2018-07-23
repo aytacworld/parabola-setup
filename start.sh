@@ -5,3 +5,4 @@ sh ./install/keeweb.sh
 sh ./install/vscode.sh
 sh ./install/rambox.sh
 sh ./install/postman.sh
+sh ./install/abricote.sh
